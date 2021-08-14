@@ -43,7 +43,7 @@ function App() {
                 }
             });
 
-            window.location.href = "/room";
+            window.location.href = "/rooms";
         }
     }
 
