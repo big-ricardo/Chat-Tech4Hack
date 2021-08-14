@@ -11,6 +11,18 @@ export const CardContainer = styled.div`
     flex-direction: row-reverse;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
+`;
+
+export const ChatWindow = styled.div`
+    display: flex;
+    flex: 1;
+    align-items: center;
+    background-color: azure;
+    height: 100vh;
+    justify-content: left;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
     button {
         color: #fff;
         font-size: 16px;
@@ -35,7 +47,7 @@ export const CardContainer = styled.div`
     }
 `;
 
-export const TapContainer = styled.div`
+export const UserConnections = styled.div`
     display: flex;
     align-items: center;
     margin-left: 25px;
@@ -57,23 +69,4 @@ export const TapContainer = styled.div`
         text-decoration: none;
         align-items: center;
     }
-`;
-
-export const MsgContainer = styled(motion.div)`
-    width: 100%;
-    padding: 10px;
-    height: 90vh;
-    overflow-y: scroll;
-    background-color: azure;
-    scroll-behavior: smooth;
-`;
-
-export const Button = styled(motion.button)`
-    color: #fff;
-    font-size: 16px;
-    background: #da5c5c;
-    height: 56px;
-    border: 0;
-    border-radius: 5px;
-    width: 100%;
 `;
