@@ -130,7 +130,7 @@ Entre no editor de código e entre no frontend e crie uma pasta chamada .env:
 Adicionte o seguinte conteúdo trocando para seus dados do Banco de Dados:
 
 ```
-REACT_APP_MYAPI_URI=http://localhost:7071/
+REACT_APP_MYAPI_URI=http://localhost:7071
 ```
 
 ### Quarto passo:
@@ -192,6 +192,7 @@ Com isso só enviar a requisição e atualizar a página do react, onde a room j
 
 ## Testar.
 Agora é só entrar na room, abra uma nova guia na tela incial do projeto sem fechar a anterior, crie e faça  login com uma nova conta, agora entre na room ja criada e faça o teste do chat, não esqueça de manter a primeira tela aberta, senão você entrará em duas telas com o mesmo login!!!
+
 
 ## Autores
 
