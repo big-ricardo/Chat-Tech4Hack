@@ -174,7 +174,7 @@ Se você seguiu os passos corretamente irá abrir uma aba no seu navegador princ
 
 <h2>Criar uma Room</h2>
 Infelizmente não foi possivel adicionar uma página para criar uma nova room, sendo assim você deve criar uma conta e fazer login pelo site, 
-com isso você será direcionado para a rota "/rooms". Não tendo nada pois não possui nenhuma room cadastrada em seu nome, para criar você deve acessar Chrome DevTools 
+com isso você será direcionado para a rota "/rooms". Não tendo nada pois não possui nenhuma room cadastrada em seu nome, para criar você deve acessar o seu Chrome DevTools 
 ir "Application" depois em "Local Storage" terá um campo chamado token, você deve copia-lo.
 
 Agora você deve acessar um simulador de chamadas API, ex: Postman, Insomina...
