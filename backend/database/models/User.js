@@ -4,6 +4,11 @@ const bcrypt = require('bcrypt')
 class User extends Model {
     static init(sequelize) {
         super.init({
+            uuid: {
+                type: DataTypes.UUID,
+                defaultValue: DataTypes.UUIDV4,
+                primaryKey: true
+            },
             name: DataTypes.STRING,
             username: DataTypes.STRING,
             email: DataTypes.STRING,
@@ -12,6 +17,7 @@ class User extends Model {
         }, {
             sequelize,
         });
+        
         //Password hash
         this.addHook('beforeSave', async users => {
             if (users.password) {
@@ -33,8 +39,14 @@ class User extends Model {
 
             return null
         }
-
+        
     }
+
+    static associate(models) {
+        this.hasMany(models.Message, { foreignKey: 'user_id', as: 'message' });
+        this.belongsToMany(models.Chatroom, { foreignKey: 'user_id', through: 'user_room', as: 'room' });
+    }
+
 }
 
 module.exports = User;

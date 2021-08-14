@@ -2,11 +2,11 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('room', { 
-      id: {
-        type: Sequelize.INTEGER,
+    return queryInterface.createTable('room', {
+      uuid: {
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
       },
       name: {
@@ -14,9 +14,9 @@ module.exports = {
         allowNull: false,
       },
       user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
-        references: { model: 'user', key: 'id' },
+        references: { model: 'user', key: 'uuid' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
