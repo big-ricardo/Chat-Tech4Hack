@@ -190,7 +190,9 @@ Agora adicionar no cabeçalho da requisição um campo token onde você irá adi
 
 Com isso só enviar a requisição e atualizar a página do react, onde a room já ira aparecer para você, com isso só clicar nela que você será redirecionado para a tela de chat. 
 
-- Deploy.
+## Testar.
+Agora é só entrar na room, abra uma nova guia na tela incial do projeto sem fechar 
+a anterior, crie e faça  login com uma nova conta, agora entre na room ja criada e faça o teste do chat, não esqueça de manter a primeira tela aberta, senão você entrará em duas telas com o mesmo login!!!
 
 ## Autores
 

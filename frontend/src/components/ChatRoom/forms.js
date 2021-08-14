@@ -22,6 +22,10 @@ export default function FormsChatRoom() {
                 recipient: recipient,
                 text: messageText,
                 room_id
+            }, {
+                headers:{
+                    "x-ms-client-principal-room": `${room_id.replace(/[0-9,-]+/g, '')}`
+                }
             })
             .then((resp) => resp.data);
     };

@@ -17,7 +17,6 @@ function App() {
     } = useContext(UserContext);
 
     latestChat.current = chat;
-
     const connection = useMemo(() => {
         if (!username) {
             return null;
@@ -27,7 +26,7 @@ function App() {
             .withUrl(`${process.env.REACT_APP_MYAPI_URI}/api`, {
                 headers: {
                     "x-ms-client-principal-id": username,
-                    "x-ms-client-principal-room_id": room_id
+                    "x-ms-client-principal-room": `${room_id.replace(/[0-9,-]+/g, '')}`
                 }
             })
             .configureLogging(LogLevel.Information)
@@ -70,7 +69,12 @@ function App() {
         return api
             .post(`/api/messages?token=${accessToken}`, {
                 recipient: recipient,
-                text: messageText
+                text: messageText,
+                room_id
+            }, {
+                headers: {
+                    "x-ms-client-principal-room": `${room_id.replace(/[0-9,-]+/g, '')}`
+                }
             })
             .then((resp) => resp.data);
     };

@@ -5,7 +5,7 @@ const Chatroom = require("../database/models/Chatroom");
 
 module.exports = async function (context, req) {
   const roomId = req.headers["room_id"];
-
+  console.log(req)
   const user = await adminToken.decode(req);
   //const room = await Chatroom.findByPk(roomId);
 

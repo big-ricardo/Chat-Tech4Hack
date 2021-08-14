@@ -22,11 +22,13 @@ const MessageComponent = (props) => {
                             )
                         }
                     >
-                        <p>
-                            {/* { score: 0, label: 'NEUTRAL' } */}
-                            Sentimento: {props.sentiments.score}
-                        </p>
                         {props.isPrivate && <label>Mensagem Privada</label>}
+                        <p>
+                        <label>
+                            {/* { score: 0, label: 'NEUTRAL' } */}
+                            Sentimento: {props.sentiments.label}
+                        </label>
+                        </p>
                         <p>
                             <strong>{props.sender}</strong>:
                         </p>
@@ -36,18 +38,15 @@ const MessageComponent = (props) => {
             ) : (
                 <MsgContainerUser>
                     <Message lastElement={props.index === props.isFinish}>
+                        <label>
+                            {/* { score: 0, label: 'NEUTRAL' } */}
+                            Sentimento: {props.sentiments.label}
+                        </label>
                         <p>
                             <strong>{props.sender}</strong>:
                         </p>
 
-                        <p>
-                            {/* { score: 0, label: 'NEUTRAL' } */}
-                            Sentimento: {props.sentiments.score}
-                        </p>
                         {props.isPrivate && <label>Mensagem Privada</label>}
-                        <p>
-                            <strong>{props.sender}</strong>:
-                        </p>
 
                         <p>{props.text}</p>
                     </Message>

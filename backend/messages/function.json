@@ -16,7 +16,7 @@
     {
       "type": "signalR",
       "name": "$return",
-      "hubName": "chatdl",
+      "hubName": "{headers.x-ms-client-principal-room}",
       "direction": "out"
     }
   ]

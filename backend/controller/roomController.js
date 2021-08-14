@@ -33,21 +33,11 @@ module.exports = {
   async show(req) {
     const {id} = await adminToken.decode(req)
   
-    const {room} = await User.findOne({
-      where: {id },
-      include: {
-        association: "room",
-        attributes: ["name", "id"],
-        through: {
-          attributes: [],
-        }
-      },
+    const room = await Chatroom.findAll({
       attributes: {
         exclude: ["createdAt", "updatedAt"],
       },
     });
-
-    console.log(room)
 
     if (room) {
       return {

@@ -16,7 +16,7 @@
       "type": "signalRConnectionInfo",
       "name": "connectionInfo",
       "userId": "{headers.x-ms-client-principal-id}",
-      "hubName": "chat",
+      "hubName": "{headers.x-ms-client-principal-room}",
       "direction": "in"
     }
   ]
