@@ -1,27 +1,27 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('user_room', { 
-      uuid: {
-        type: Sequelize.UUID,
+    return queryInterface.createTable("user_room", {
+      id: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        defaultValue: Sequelize.UUIDV4,
+        autoIncrement: true,
         allowNull: false,
       },
       user_id: {
         type: Sequelize.UUID,
         allowNull: false,
-        references: { model: 'user', key: 'uuid' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        references: { model: "user", key: "id" },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       room_id: {
         type: Sequelize.UUID,
         allowNull: false,
-        references: { model: 'room', key: 'uuid' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        references: { model: "room", key: "id" },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       created_at: {
         type: Sequelize.DATE,
@@ -35,6 +35,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('user_room');
-  }
+    return queryInterface.dropTable("user_room");
+  },
 };

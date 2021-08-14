@@ -1,4 +1,4 @@
-const authController = require("../controller/authController");
+const roomController = require("../controller/roomController");
 const StatusCodes = require("http-status-codes");
 
 module.exports = async function (context, req) {
@@ -6,11 +6,11 @@ module.exports = async function (context, req) {
 
   switch (req.method) {
     case "POST":
-      response = await authController.show(req);
+      response = await roomController.store(req);
       context.res = response;
       break;
     case "GET":
-      response = await authController.store(req);
+      response = await roomController.show(req);
       context.res = response;
       break;
     default:
