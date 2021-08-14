@@ -110,7 +110,7 @@ GOTIT_PASSWORD=seu password da GoTiT aqui
 GOTIT_URI=sua chave API da GoTiT aqui
 ```
 No Backend crie um file chamada local.settings.json e nele coloque o seguinte código
-``
+```
 {
   "IsEncrypted": false,
   "Values": {
@@ -124,7 +124,7 @@ No Backend crie um file chamada local.settings.json e nele coloque o seguinte c�
   }
 }
 
-``
+```
 
 Entre no editor de código e entre no frontend e crie uma pasta chamada .env:
 Adicionte o seguinte conteúdo trocando para seus dados do Banco de Dados:
