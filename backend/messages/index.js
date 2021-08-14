@@ -1,10 +1,19 @@
-// Copyright (c) Microsoft. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+const adminToken = require('../services/adminToken')
 
 module.exports = async function (context, req) {
-  console.log("REQBODY--------_>",req);
+
+  const user = await adminToken.decode(req)
+
+  if (!user) {
+    return;
+  }
+
+  const message = req.body;
+
+  message.sender = user.username;
+
   return {
-    "target": "newMessage",
-    "arguments": [ req.body ]
+    'target': 'newMessage',
+    'arguments': [message]
   };
 };

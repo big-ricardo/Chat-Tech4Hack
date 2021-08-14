@@ -19,6 +19,7 @@ project.lock.json
 /secrets
 /data
 .secrets
+node_modules
 appsettings.json
 local.settings.json
-.env
+node_modules
