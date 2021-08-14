@@ -7,6 +7,7 @@ class Chatroom extends Model {
             name: DataTypes.STRING,
         }, {
             sequelize,
+            tableName: 'room',
         });
     }
 

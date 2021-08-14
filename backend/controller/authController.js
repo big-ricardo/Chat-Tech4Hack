@@ -36,6 +36,10 @@ module.exports = {
 
         const token = await adminToken.encode({ username, password })
 
+        if(!token){
+            return { statusCode: StatusCodes.NON_AUTHORITATIVE_INFORMATION };
+        }
+
         return {
             body: { accessToken: token},
             headers: { 'content-type': 'application/json' }

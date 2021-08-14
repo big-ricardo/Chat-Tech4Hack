@@ -16,12 +16,13 @@ class User extends Model {
             password_hash: DataTypes.STRING,
         }, {
             sequelize,
+            tableName: 'user',
         });
         
         //Password hash
-        this.addHook('beforeSave', async users => {
-            if (users.password) {
-                users.password_hash = await bcrypt.hash(users.password, 8);
+        this.addHook('beforeSave', async user => {
+            if (user.password) {
+                user.password_hash = await bcrypt.hash(user.password, 8);
             }
         });
 

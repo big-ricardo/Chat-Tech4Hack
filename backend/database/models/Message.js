@@ -8,6 +8,7 @@ class Message extends Model {
             text: DataTypes.STRING,
         }, {
             sequelize,
+            tableName: 'message',
         });
     }
 

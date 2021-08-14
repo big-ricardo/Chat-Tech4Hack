@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt")
 module.exports = {
 
     async store({body}) {
-        console.log(body)
+        //console.log(body)
         const { name, username, email, password } = body
 
         if (!name && !username && !email && !password) {
