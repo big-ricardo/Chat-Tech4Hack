@@ -1,8 +1,13 @@
 {
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "http-status-codes": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
-    "safe-buffer": "^5.2.1"
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "safe-buffer": "^5.2.1",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
   }
 }
