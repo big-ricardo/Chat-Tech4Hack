@@ -1,70 +1,74 @@
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import ThemeProvider from "./contexts /ThemesContext";
-import { UserContext } from "./contexts/userContext";
+import ThemeProvider from "./contexts/ThemesContext";
 import GlobalStyle from "./styles/globalstyles";
-
-//Routes
+import api from "./services/api";
 import Index from "./pages/Index";
+import Chat from "./pages/Chat";
+import Register from "./pages/Register";
+import { useContext, useEffect } from "react";
+import { UserContext } from "./contexts/UserContext";
 
-const hist = createBrowserHistory();
+const browserHistory = createBrowserHistory();
 
 export default function Routes() {
-  const { dispatch: userDispatch, state: { authenticated } } = useContext(UserContext)
+    const {
+        dispatch: userDispatch,
+        state: { authenticated }
+    } = useContext(UserContext);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token')
+    useEffect(() => {
+        const token = localStorage.getItem("token");
 
-    if (!token) {
-      return false
-    };
+        if (!token) {
+            return false;
+        }
 
-    // authenticate(token)
+        api.post("/api/auth", null, {
+            headers: {
+                token: token
+            }
+        })
+            .then(({ data }) => {
+                if (data) {
+                    userDispatch({
+                        type: "setUser",
+                        payload: {
+                            authenticated: true,
+                            accessToken: token,
+                            ...data
+                        }
+                    });
+                }
+            })
+            .catch((e) => {
+                userDispatch({
+                    type: "setUser",
+                    payload: {
+                        authenticated: false
+                    }
+                });
+            });
+    }, [userDispatch]);
 
-  }, [])
+    return (
+        <ThemeProvider>
+            <GlobalStyle />
 
-  // async function authenticate(token) {
-  //   api.post('/api/auth', null, {
-  //     headers: {
-  //       token: token
-  //     }
-  //   }).then(({ data }) => {
-  //     if (data) {
-  //       userDispatch({
-  //         type: 'setUser',
-  //         payload: {
-  //           authenticated: true,
-  //           accessToken: token,
-  //           ...data
-  //         }
-  //       })
-  //     }
-  //   }).catch(e => {
-  //     userDispatch({
-  //       type: 'setUser',
-  //       payload: {
-  //         authenticated: false,
-  //       }
-  //     })
-  //   })
-  // }
+            <Router history={browserHistory}>
+                <Switch>
+                    <Route path="/user" exact component={Register} />
+                    <Route path="/" exact component={Index} />
 
-  return (
-    <ThemeProvider>
-      <GlobalStyle />
+                    {authenticated && (
+                        <Route path="/chat" exact component={Chat} />
+                    )}
 
-      <Router history={hist}>
-        <Switch>
-
-
-          <Route path="/" exact component={Index} />
-          <Route path="*">
-            <Redirect to="/" />
-          </Route>
-
-        </Switch>
-      </Router>
-
-    </ThemeProvider>
-  );
+                    <Route path="*">
+                        <Redirect to="/" />
+                    </Route>
+                </Switch>
+            </Router>
+        </ThemeProvider>
+    );
 }

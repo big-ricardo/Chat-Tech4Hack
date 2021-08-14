@@ -1,33 +1,32 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('message', { 
+    return queryInterface.createTable("message", {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
       },
       user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
-        references: { model: 'user', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        references: { model: "user", key: "id" },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       room_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
-        references: { model: 'room', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+        references: { model: "room", key: "id" },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       text: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -40,6 +39,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('message');
-  }
+    return queryInterface.dropTable("message");
+  },
 };

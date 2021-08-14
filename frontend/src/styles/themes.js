@@ -1,16 +1,16 @@
 export const light = {
-    title: '0',
-    primary: '#fff'
-}
+    title: "0",
+    primary: "#fff"
+};
 
 export const dark = {
-    title: '1',
-    primary: '#000'
-}
+    title: "1",
+    primary: "#000"
+};
 
-const themes ={
+const themes = {
     light,
     dark
-}
+};
 
-export default themes
+export default themes;

@@ -10,23 +10,24 @@ export const H1 = styled(motion.h1)`
     text-align: center;
 `;
 
+export const Button = styled(motion.button)`
+    color: #fff;
+    font-size: 16px;
+    background: #da5c5c;
+    height: 56px;
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+`;
+
 export const CardContainer = styled(motion.div)`
     display: flex;
     align-items: center;
+    width: 90vw;
     justify-content: center;
     height: 90vh;
-    width: 90vw;
     margin: auto;
-
-    button {
-        color: #fff;
-        font-size: 16px;
-        background: #da5c5c;
-        height: 56px;
-        border: 0;
-        border-radius: 5px;
-        width: 100%;
-    }
+    margin-top: 20px;
     hr {
         margin: 20px 0;
         border: none;
@@ -39,26 +40,5 @@ export const CardContainer = styled(motion.div)`
         color: #263238;
         text-decoration: none;
         align-items: center;
-    }
-`;
-
-export const Button = styled(motion.button)`
-    color: #fff;
-    font-size: 16px;
-    background: #da5c5c;
-    height: 56px;
-    border: 0;
-    border-radius: 5px;
-    width: 100%;
-`;
-export const Tip = styled(motion.div)`
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    p {
-        color: #ff3333;
-        margin-bottom: 15px;
-        padding: 10px;
-        width: 100%;
     }
 `;
