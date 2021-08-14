@@ -154,6 +154,23 @@ cd Chat-Tech4Hack/backend
 func start
 ```
 
+No Backend crie um file chamada local.settings.json e nele coloque o seguinte código
+``
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureSignalRConnectionString": passe o endpoint da azure aqui,
+    "FUNCTIONS_WORKER_RUNTIME": "node"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "http://localhost:8080,https://azure-samples.github.io,passe a url do front end aqui",
+    "CORSCredentials": true
+  }
+}
+
+``
+
 Se você seguiu os passos corretamente irá abrir uma aba no seu navegador principal, onde estará rodando a aplicação.
 
 ## Futuro
