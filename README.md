@@ -130,7 +130,7 @@ Entre no editor de código e entre no frontend e crie uma pasta chamada .env:
 Adicionte o seguinte conteúdo trocando para seus dados do Banco de Dados:
 
 ```
-REACT_APP_MYAPI_URI=https:http://localhost:7071/
+REACT_APP_MYAPI_URI=http://localhost:7071/
 ```
 
 ### Quarto passo:
