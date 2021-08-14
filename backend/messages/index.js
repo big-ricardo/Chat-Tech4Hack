@@ -1,5 +1,6 @@
 const adminToken = require("../services/adminToken");
 const api = require("../services/api");
+const Message = require("../database/models/Message");
 
 module.exports = async function (context, req) {
   const user = await adminToken.decode(req);
@@ -29,6 +30,10 @@ module.exports = async function (context, req) {
 
   message.emotions = emotions;
   message.sentiments = sentiment;
+
+  await Message.create({user_id: message.})
+
+  console.log(message);
 
   return {
     userId: recipientUserId,

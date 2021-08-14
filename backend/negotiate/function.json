@@ -16,7 +16,7 @@
       "type": "signalRConnectionInfo",
       "name": "connectionInfo",
       "userId": "{headers.x-ms-client-principal-id}",
-      "hubName": "chatdl",
+      "hubName": "chat",
       "direction": "in"
     }
   ]
