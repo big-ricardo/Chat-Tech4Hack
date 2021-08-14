@@ -43,7 +43,7 @@ function App() {
                 }
             });
 
-            window.location.href = "/chat";
+            window.location.href = "/room";
         }
     }
 

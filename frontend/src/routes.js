@@ -5,6 +5,7 @@ import GlobalStyle from "./styles/globalstyles";
 import api from "./services/api";
 import Index from "./pages/Index";
 import Chat from "./pages/Chat";
+import Room from "./pages/Room";
 import Register from "./pages/Register";
 import { useContext, useEffect } from "react";
 import { UserContext } from "./contexts/UserContext";
@@ -61,7 +62,11 @@ export default function Routes() {
                     <Route path="/" exact component={Index} />
 
                     {authenticated && (
-                        <Route path="/chat" exact component={Chat} />
+                        <Route path="/rooms" exact component={Room} />
+                    )}
+
+                    {authenticated && (
+                        <Route path="/:room_id/chat" exact component={Chat} />
                     )}
 
                     <Route path="*">
