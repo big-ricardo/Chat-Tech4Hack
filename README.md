@@ -172,7 +172,23 @@ func start
 
 Se você seguiu os passos corretamente irá abrir uma aba no seu navegador principal, onde estará rodando a aplicação.
 
-## Futuro
+<h2>Criar uma Room</h2>
+Infelizmente não foi possivel adicionar uma página para criar uma nova room, sendo assim você deve criar uma conta e fazer login pelo site, 
+com isso você será direcionado para a rota "/rooms". Não tendo nada pois não possui nenhuma room cadastrada em seu nome, para criar você deve acessar Chrome DevTools 
+ir "Application" depois em "Local Storage" terá um campo chamado token, você deve copia-lo.
+
+Agora você deve acessar um simulador de chamadas API, ex: Postman, Insomina...
+Com ele aberto, você ira adicionar a rota onde o backend está rodando, comumente "http://localhost:7071"  e adicionar "/api/room" ficando então "http://localhost:7071/api/room".
+Colocar o método da chamada para "post", no corpo da requisição você irá adicionar um objeto json contendo o nome da room que você deseja criar:
+
+```
+{
+  "name": "nome da room"
+}
+```
+Agora adicionar no cabeçalho da requisição um campo token onde você irá adicionar o token que foi copiado.
+
+Com isso só enviar a requisição e atualizar a página do react, onde a room já ira aparecer para você, com isso só clicar nela que você será redirecionado para a tela de chat. 
 
 - Deploy.
 
