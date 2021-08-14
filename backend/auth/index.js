@@ -1,19 +1,21 @@
 const authController = require('../controller/authController')
+const StatusCodes = require('http-status-codes')
 
 module.exports = async function (context, req) {
 
+    let response = {};
+
     switch (req.method) {
         case 'POST':
-            const response = authController.show(req);
+            response = await authController.show(req);
             context.res = response
             break;
         case 'GET':
-            response = authController.store(req);
+            response = await authController.store(req);
             context.res = response
             break;
-        default: 
-        context.res = { statusCode: StatusCodes.NOT_ACCEPTABLE };
+        default:
+            context.res = { statusCode: StatusCodes.BAD_REQUEST };
     }
-
     return;
 }
