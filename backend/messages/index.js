@@ -1,11 +1,15 @@
 const adminToken = require("../services/adminToken");
 const api = require("../services/api");
 const Message = require("../database/models/Message");
+const Chatroom = require("../database/models/Chatroom");
 
 module.exports = async function (context, req) {
-  const user = await adminToken.decode(req);
+  const roomId = req.headers["room_id"];
 
-  if (!user) {
+  const user = await adminToken.decode(req);
+  const room = await Chatroom.findByPk(roomId);
+
+  if (!user || !room) {
     return;
   }
 
@@ -31,9 +35,11 @@ module.exports = async function (context, req) {
   message.emotions = emotions;
   message.sentiments = sentiment;
 
-  await Message.create({user_id: message.})
-
-  console.log(message);
+  await Message.create({
+    text: message.text,
+    user_id: user.id,
+    room_id: roomId,
+  });
 
   return {
     userId: recipientUserId,
