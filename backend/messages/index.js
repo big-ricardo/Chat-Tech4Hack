@@ -7,9 +7,9 @@ module.exports = async function (context, req) {
   const roomId = req.headers["room_id"];
 
   const user = await adminToken.decode(req);
-  const room = await Chatroom.findByPk(roomId);
+  //const room = await Chatroom.findByPk(roomId);
 
-  if (!user || !room) {
+  if (!user) {
     return;
   }
 
@@ -34,13 +34,13 @@ module.exports = async function (context, req) {
 
   message.emotions = emotions;
   message.sentiments = sentiment;
-
+/*
   await Message.create({
     text: message.text,
     user_id: user.id,
     room_id: roomId,
   });
-
+*/
   return {
     userId: recipientUserId,
     target: "newMessage",
