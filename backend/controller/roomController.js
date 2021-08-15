@@ -31,32 +31,23 @@ module.exports = {
   },
 
   async show(req) {
-    const id = req.query["roomId"];
-
-    if (!id) {
-      return { statusCode: StatusCodes.BAD_REQUEST };
-    }
-
-    const room = await User.findOne({
-      where: { uuid: id },
+    const {id} = await adminToken.decode(req)
+  
+    const {room} = await User.findOne({
+      where: {id },
       include: {
-        association: "message",
-        attributes: ["text"],
+        association: "room",
+        attributes: ["name", "id"],
         through: {
           attributes: [],
-        },
-        include: {
-          association: "user",
-          attributes: ["username"],
-          through: {
-            attributes: [],
-          },
-        },
+        }
       },
       attributes: {
         exclude: ["createdAt", "updatedAt"],
       },
     });
+
+    console.log(room)
 
     if (room) {
       return {
