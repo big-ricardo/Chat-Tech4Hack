@@ -7,7 +7,7 @@ Publish
 
 *.user
 *.suo
-*.cscfg
+*.cscfg 
 *.Cache
 project.lock.json
 

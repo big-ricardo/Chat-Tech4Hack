@@ -18,7 +18,7 @@ Como executar?
 Foi descrito no (#Rodando).
 
 Como utilizar?
-É necessário rodar a aplicação nos terminais, abrindo assim a URL localhost com a aplicação, onde você entra e clica em "Sign up for free" se não tiver conta, realizando o cadastro, logo depois você será redirecionado a uma rota de login, nela faça login entrando com suas credenciais e clicando em "Sign in". Ao realizar esses passos ira abrir o Chat.
+É necessário rodar a aplicação nos terminais, abrindo assim a URL localhost com a aplicação, onde você entra e clica em "Sign up for free" se não tiver conta, realizando o cadastro, logo depois você será redirecionado a uma rota de login, nela faça login entrando com suas credenciais e clicando em "Sign in". Ao realizar esses passos ira abrir uma tela com as rooms disponíveis ai só acessar uma para ir para o Chat.
 
 ---
 
@@ -173,7 +173,7 @@ func start
 Se você seguiu os passos corretamente irá abrir uma aba no seu navegador principal, onde estará rodando a aplicação.
 
 <h2>Criar uma Room</h2>
-Infelizmente não foi possivel adicionar uma página para criar uma nova room, sendo assim você deve criar uma conta e fazer login pelo site, 
+Infelizmente não foi possível adicionar uma página para criar uma nova room, sendo assim você deve criar uma conta e fazer login pelo site, 
 com isso você será direcionado para a rota "/rooms". Não tendo nada pois não possui nenhuma room cadastrada em seu nome, para criar você deve acessar o seu Chrome DevTools 
 ir "Application" depois em "Local Storage" terá um campo chamado token, você deve copia-lo.
 
@@ -191,8 +191,7 @@ Agora adicionar no cabeçalho da requisição um campo token onde você irá adi
 Com isso só enviar a requisição e atualizar a página do react, onde a room já ira aparecer para você, com isso só clicar nela que você será redirecionado para a tela de chat. 
 
 ## Testar.
-Agora é só entrar na room, abra uma nova guia na tela incial do projeto sem fechar 
-a anterior, crie e faça  login com uma nova conta, agora entre na room ja criada e faça o teste do chat, não esqueça de manter a primeira tela aberta, senão você entrará em duas telas com o mesmo login!!!
+Agora é só entrar na room, abra uma nova guia na tela incial do projeto sem fechar a anterior, crie e faça  login com uma nova conta, agora entre na room ja criada e faça o teste do chat, não esqueça de manter a primeira tela aberta, senão você entrará em duas telas com o mesmo login!!!
 
 ## Autores
 
