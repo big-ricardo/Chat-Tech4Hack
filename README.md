@@ -107,7 +107,7 @@ DATABASE_DATABASE=nome da sua data base aqui
 
 GOTIT_USERNAME=seu username da GoTiT aqui
 GOTIT_PASSWORD=seu password da GoTiT aqui
-GOTIT_URI=sua chave API da GoTiT aqui
+GOTIT_URI=https://api.gotit.ai/NLU/v1.5
 ```
 No Backend crie um file chamada local.settings.json e nele coloque o seguinte código
 ```
